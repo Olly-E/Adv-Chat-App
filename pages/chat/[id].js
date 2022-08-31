@@ -7,6 +7,7 @@ import { auth, db } from "../../firebase";
 import getRecipientEmail from "../../utils/getRecipientEmail";
 
 const Chat = ({chat, messages}) => {
+  console.log(chat, messages);
     const [user] = useAuthState(auth);
   return (
     <Container>
@@ -61,6 +62,7 @@ const Container = styled.div`
 `;
 const ChatContainer = styled.div`
     flex: 1;
+    background-color: #e5ded8;
     overflow: scroll;
     height: 100vh;
     ::-webkit-scrollbar {
