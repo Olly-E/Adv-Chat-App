@@ -22,7 +22,7 @@ import TimeAgo from 'timeago-react'
 function ChatScreen({chat, messages}) {
     const [user] = useAuthState(auth);
     const [input, setInput] = useState('');
-    const [endOfMessagesRef] = useRef(null);
+    const endOfMessagesRef = useRef(null);
     const router = useRouter();
     const [messagesSnapshot] = useCollection(db
     .collection('chats')
@@ -51,7 +51,7 @@ function ChatScreen({chat, messages}) {
     };
 
     const scrollToBottom = () => {
-      endOfMessagesRef = current.scrollIntoView({
+      endOfMessagesRef.current.scrollIntoView({
         behavior: 'smooth',
         block: 'start',
       })
@@ -159,13 +159,13 @@ const HeaderIcon = styled.div`
 `;
 
 const MessageContainer = styled.div`
-  
+  min-height: 90vh; 
+  padding: 30px;
+  background-color: #e5ded8;
 `;
 
 const EndOfMessage = styled.div`
-  padding: 30px;
-  background-color: #e5ded8;
-  min-height: 90vh; 
+  margin-bottom: 50px;
 `;
 const InputConatainer = styled.form`
   display: flex;
